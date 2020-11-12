@@ -2,7 +2,8 @@
 <p align="justify">Listas de exercícios da matéria de Programação em Linguagem C (IFSC) com suas respectivas resoluções. As questões correspondentes a cada arquivo do respositótio podem ser visualizadas abaixo:<br></p>
 <h2 align="center">X e Y zero?</h1>
 <p align="justify">O código seguinte deve dar três informações a partir de dois valores, x e y: se o valor x é zero, se x não é zero ou se x e y são iguais a zero. Confira se está correto. Caso não esteja, corrija e teste.<br></p>
-```<br>
+
+```
     #define VPL_MOODLE
     #include <stdio.h>
     int main() {
@@ -19,5 +20,4 @@
       }
     return 0;
     }
-
-```<br>
+```
