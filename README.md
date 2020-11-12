@@ -22,7 +22,7 @@
     }
 ```
 <h2 align="center">Manhã ou tarde?</h1>
-<p align="justify">O código seguinte deve informar se é manhã, tarde ou noite a partir do valor informado da hora do dia. Considere manhã das 6h até meio-dia, tarde até 18 horas. Confira se está correto. Caso não esteja, corrija e teste.<br></p>
+<p align="justify">O código seguinte deve informar se é manhã, tarde ou noite a partir do valor informado da hora do dia. Considere manhã das 6h até meio-dia, tarde até 17 horas. Confira se está correto. Caso não esteja, corrija e teste.<br></p>
 
 ```
     #define VPL_MOODLE
