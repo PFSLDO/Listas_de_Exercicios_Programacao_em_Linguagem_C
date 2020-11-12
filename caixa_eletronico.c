@@ -19,7 +19,7 @@ int main() {
         x = x - fifty * 50;
         ten = x/10;
         x = x - ten * 10;
-        five = x;
+        five = x / 5;
         printf("%d %d %d %d\n", hundred, fifty, ten, five);
     }
 return 0;
