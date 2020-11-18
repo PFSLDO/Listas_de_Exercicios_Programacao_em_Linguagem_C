@@ -1,26 +1,13 @@
 #define VPL_MOODLE
 #include <stdio.h>
 int main() {
-    int x, hundred, fifty, ten, five;
+    int x, y;
     #ifndef VPL_MOODLE
-    printf("Digite um valor inteiro múltiplo de 5:\n");
+    printf("Digite um valor inteiro para obter a tabuada:\n");
     #endif
     scanf("%d", &x);
-    if (x%5 != 0) {
-        printf("Invalido\n");
-    }
-    if (x%5 == 0) {
-        hundred = x / 100;
-        x = x - hundred * 100;
-        if (x / 10 >= 5) {
-            fifty = 1;
-        }
-        else fifty = 0;
-        x = x - fifty * 50;
-        ten = x/10;
-        x = x - ten * 10;
-        five = x / 5;
-        printf("%d %d %d %d\n", hundred, fifty, ten, five);
+    for (y = 1; y <= 10; y ++) {
+        printf("%d x %d = %d\n", x, y, x*y);
     }
 return 0;
 }

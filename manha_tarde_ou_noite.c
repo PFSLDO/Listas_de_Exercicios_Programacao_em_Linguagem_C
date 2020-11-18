@@ -6,20 +6,25 @@ int main() {
     printf("Digite a hora e os minutos:");
     #endif
     scanf("%d %d", &hora, &minutos);
-    if ((hora >= 6 && hora < 12 ) && (minutos >= 0 && minutos <= 59)) {
-        printf("Manha\n");
-    }
-    if ((hora >= 12 && hora < 18) && (minutos >= 0 && minutos <= 59)) {
-        printf("Tarde\n");
-    }
-    if (((hora >= 18 && hora <= 23) && (minutos >= 0 && minutos <= 59)) || ((hora < 6 && hora >= 0) && (minutos >= 0 && minutos <= 59))) {
-        printf("Noite\n");
-    }
     if (hora < 0 || hora > 23) {
         printf("Invalida\n");
+        break;
     }
-    if ((minutos < 0 || minutos > 59) && (hora >= 0 && hora <= 23)) {
+    if (minutos < 0 || minutos > 59) {
         printf("Minuto invalido\n");
+        break;
+    }
+    if (hora >= 6 && hora < 12 ) {
+        printf("Manha\n");
+        break;
+    }
+    if (hora >= 12 && hora < 18) {
+        printf("Tarde\n");
+        break;
+    }
+    if ((hora >= 18 && hora <= 23) || (hora < 6 && hora >= 0)) {
+        printf("Noite\n");
+        break;
     }
 return 0;
 }
