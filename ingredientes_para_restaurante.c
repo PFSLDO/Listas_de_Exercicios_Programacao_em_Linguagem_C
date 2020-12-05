@@ -9,7 +9,7 @@ int main() {
     printf("Digite 4 valores de massa (em gramas) dos seguintes ingredientes: arroz, feijão, carne, cenoura\n");
     #endif
 
-    for (i = 0; i <= 3; i ++) {
+    for (i = 0; i < 4; i ++) {
         scanf("%f", &food[i]);
     }
 
@@ -19,7 +19,7 @@ int main() {
 
     scanf("%d", &meals);
 
-    for (i = 0; i <= 3; i ++) {
+    for (i = 0; i < 4; i ++) {
         buy[i] = food[i] * meals;
         printf("%d\n", buy[i]);
     }

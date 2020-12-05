@@ -1,8 +1,7 @@
 #define VPL_MOODLE
 #include <stdio.h>
 
-enum {RUA, SALA, QUARTO, COZINHA}; // uma forma de representar números inteiros
-// com um "apelido". RUA = 0, SALA = 1, ...
+enum {RUA, SALA, QUARTO, COZINHA}; //Uma forma de representar números inteiros com um "apelido": RUA = 0, SALA = 1...
 
 int main() {
   int state = RUA;
@@ -14,7 +13,7 @@ int main() {
     #else
     printf("%d\n", state);
     #endif
-    scanf(" %c", &event); //espaco na frente para consumir o 'enter'
+    scanf(" %c", &event); //Espaco na frente para consumir o 'enter'
 
     switch (state) {
 
