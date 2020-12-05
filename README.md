@@ -448,7 +448,7 @@ int main(void) {
 ```
 int max_vet(int vet[], int tam)
 ```
-<br>
+
 ```
 #define VPL_MOODLE
 #include <stdio.h>
@@ -493,6 +493,7 @@ int main(void) {
 ```
 int verifica_bissexto(int ano)
 ```
+
 <p align="justify"><br>Você deve escrever a função em um arquivo separado.<br></p>
 
 ```
@@ -524,7 +525,6 @@ int main(void) {
 }
 ```
 
-
 <h2 align="center">Histograma em modo texto</h2>
 <p align="justify">Escreva uma função (e um programa para testá­-la) chamada histograma que receba um vetor de inteiros e seu tamanho, e desenhe em modo texto esse vetor, em que cada valor é impresso em uma linha como um número de caracteres, como mostra o exemplo seguinte. Para o vetor [3 5 7 1], a saída deve ser<br>
 ***<br>
@@ -549,8 +549,7 @@ ooooo<br>
 ooooooo<br>
 o<br>
 <br>
-ou<br>
-histograma(a, 4, '#');<br>
+ou histograma(a, 4, '#');<br>
 ###<br>
 #####<br>
 #######<br>
@@ -578,7 +577,9 @@ void histograma(int vet[], int tam, char c) {
     
 }
 ```
+
 <h3 align="center">linha.c</h3>
+
 ```
 /****************************************************************
 * Função desenha_linha(int n, char c)
@@ -595,7 +596,9 @@ void desenha_linha(int n, char c) {
     
 }
 ```
+
 <h3 align="center">main.c</h3>
+
 ```
 //#define VPL_MOODLE
 #include <stdio.h>
@@ -630,7 +633,6 @@ int main(void) {
 }
 ```
 
-
 <h2 align="center">Gregoriano para RD</h2>
 <p align="justify">Escreva uma função (e respectivo programa de teste) que retorne a data no calendário RD (conferir referência, quadro no topo da pág. 110) a partir de uma data no calendário gregoriano. Observe que no idem (d) do quadro, você irá precisar de sua função bissexto. Protótipo:<br></p>
 
@@ -646,7 +648,9 @@ int verifica_bissexto(int ano) {
 
 }
 ```
+
 <h3 align="center">greg2rd.c</h3>
+
 ```
 /**********************************************************
 * O cálculo é feito a partir do quadro da pág. 110 do 
@@ -675,7 +679,9 @@ int greg2rd(int ano, int mes, int dia) {
     
 }
 ```
+
 <h3 align="center">main.c</h3>
+
 ```
 //#define VPL_MOODLE
 #include <stdio.h>
@@ -710,6 +716,7 @@ Protótipo:<br>
 ```
 void rd2weekday(int rd, char lang[])
 ```
+
 <p align="justify">Exemplo:<br>
 rd2weekday(737485, "pt")<br>
 domingo (resultado)<br></p>
