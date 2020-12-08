@@ -495,12 +495,15 @@ int verifica_bissexto(int ano)
 ```
 
 <p align="justify"><br>Você deve escrever a função em um arquivo separado.<br></p>
+<h3 align="center">bissexto.c</h3>
 
 ```
 int verifica_bissexto(int ano) {
 
 }
 ```
+
+<h3 align="center">main.c</h3>
 
 ```
 //#define VPL_MOODLE
