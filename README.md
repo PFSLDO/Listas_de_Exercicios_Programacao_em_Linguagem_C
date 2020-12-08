@@ -711,7 +711,7 @@ int main(void) {
 Ter um calendário universal serve para fazer conversões entre os mais diversos calendários e também para saber o dia da semana de qualquer data.<br>
 Observe a figura 11.1, pág. 109. Se você tiver uma data em RD, basta usar o módulo por 7 para achar o dia da semana. Então, temos mais uma aplicação para o módulo (% em C), além de descobrir se um número é par ou ímpar.<br>
 Escreva uma função (e respectivo programa de teste) que imprima o dia da semana a partir de uma data no calendário RD (conferir referência, pág. 109). O usuário pode informar a língua em que deseja o dia da semana. No mínimo: português, inglês e espanhol. As línguas são definidas com o código de duas letras ISO 639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)<br>
-Protótipo:<br>
+Protótipo:<br></p>
     
 ```
 void rd2weekday(int rd, char lang[])
@@ -754,5 +754,112 @@ int main(void) {
     rd2weekday(dia_rd, codigo_lingua); //chamada da função
     
     return 0;
+}
+```
+
+<h2 align="center">Char e int</h2>
+<p align="justify">Execute o programa seguinte e observe que há um problema. Corrija, modificando apenas uma linha do código.<br></p>
+
+```
+#include <stdio.h>
+
+int main(void) {
+    char vc1=52, vc2=43, vc3;
+    vc3 = vc1+vc2;
+    printf("1. Resultado de %d + %d = %d\n", vc1, vc2, vc3);
+    printf("1. Tamanho das variáveis: %d byte(s)\n", sizeof(vc3));
+
+    char vi1=101, vi2=127, vi3;
+    vi3 = vi1+vi2;
+    printf("2. Resultado de %d + %d = %d\n", vi1, vi2, vi3);
+
+    return 0;
+}
+```
+
+<h2 align="center">Tipos inteiros do C99</h2>
+<p align="justify">Execute o programa seguinte e observe que há um problema. Corrija, modificando apenas uma linha do código.<br></p>
+
+```
+#include <stdio.h>
+#include <stdint.h>
+
+int main(void) {
+    int8_t vi1=15, vi2=27, vi3;
+    vi3 = vi1+vi2;
+    printf("1. Resultado de %d + %d = %d\n", vi1, vi2, vi3);
+    printf("1. Tamanho das variáveis: %d bytes\n", sizeof(vi3));
+    
+    int8_t vo1=127, vo2=120, vo3;
+    vo3 = vo1+vo2;
+    printf("2. Resultado de %d + %d = %d\n", vo1, vo2, vo3);
+    
+    return 0;
+}
+```
+
+<h2 align="center">Mais tipos inteiros do C99</h2>
+<p align="justify">Execute o programa seguinte e observe que há um problema. Corrija, modificando apenas duas linha do código.<br></p>
+
+```
+#include <stdio.h>
+#include <stdint.h>
+
+int main(void) {
+    int32_t va1=410000000, va2=320000000, va3;
+    va3 = va1+va2;
+    printf("1. Resultado de %ld + %ld = %ld\n", va1, va2, va3);
+
+    int32_t vu1=3700000000, vu2=4200000000, vu3;
+    vu3 = vu1+vu2;
+    printf("2. Resultado de %d + %d = %d\n", vu1, vu2, vu3);
+
+    return 0;
+}
+```
+
+<h2 align="center">MDC</h2>
+<p align="justify">Escreva uma função (e respectivo programa de teste) que calcule o MDC (máximo divisor comum) de dois números dados. Você pode implementar o algoritmo de Euclides.<br>
+Protótipo da função:<br></p>
+
+```
+int mdc(int n1, int n2)
+```
+
+<p align="justify">Para os testes efetuados, a declaração dos tipos na função está adequada? Verifique e proponha uma solução.<br></p>
+
+```
+int mdc(int n1, int n2) { // vai funcionar para todos os testes? Verifique e modifique
+    return -1;
+}
+
+int main(void) {
+    //scanf(num1, num2);
+    resultado = mdc(num1, num2);
+    //printf(resultado);
+    return 0;
+}
+```
+
+
+<h2 align="center">Macro</h2>
+<p align="justify">Execute o programa seguinte e observe que há problemas. Corrija, modificando apenas três linhas do código.<br></p>
+
+```
+#include <stdio.h>
+#define MEDIA(x,y) (x + y / 2)
+#define AREA_TRI(b, h) (b * h / 2)
+
+int main()
+{
+    float t1, t2;
+    
+    scanf("%f %f", t1, t2);
+
+    printf("1. Média de %.2f e %.2f é %.2f\n", t1, t2, MEDIA(t1, t2));
+    printf("2. Média de %.2f e %.2f é %.2f\n", t1+3, t2+3, MEDIA(t1+3, t2+3));
+    printf("3. Área de triângulo b: %.2f e h: %.2f é %.2f\n", t1, t2, AREA_TRI(t1, t2));
+    printf("4. Área de triângulo b: %.2f e h: %.2f é %.2f\n", t1+3, t2+3, AREA_TRI(t1+3, t2+3));
+    return (0);
 }
 ```
