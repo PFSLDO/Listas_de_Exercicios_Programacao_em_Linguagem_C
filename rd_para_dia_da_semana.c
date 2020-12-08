@@ -5,106 +5,27 @@
 *****************************************************************************/
 #define VPL_MOODLE
 #include <stdio.h>
+#include <string.h>
 
 void rd2weekday(int rd, char lang[]) {
-    if (rd%7 == 0) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("domingo\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Sunday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("domingo\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("igandea\n");
-        }
+
+int l;
+const char matriz[28][14] = {"domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "igandea", "lastelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"};
+
+    if (strcmp (lang, "pt") == 0) {
+        l = 0;
     }
-    if (rd%7 == 1) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("segunda-feira\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Monday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("lunes\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("astelehena\n");
-        }
+    if (strcmp (lang, "en") == 0) {
+        l = 1;
     }
-    if (rd%7 == 2) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("terça-feira\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Tuesday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("martes\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("asteartea\n");
-        }
+    if (strcmp (lang, "es") == 0) {
+        l = 2;
     }
-    if (rd%7 == 3) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("quarta-feira\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Wednesday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("miércoles\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("asteazkena\n");
-        }
+    if (strcmp (lang, "ba") == 0) {
+        l = 3;
     }
-    if (rd%7 == 4) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("quinta-feira\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Thursday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("jueves\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("osteguna\n");
-        }
-    }
-    if (rd%7 == 5) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("sexta-feira\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Friday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("viernes\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("ostirala\n");
-        }
-    }
-    if (rd%7 == 6) {
-        if (strcmp (lang, "pt") == 0) {
-            printf("sábado\n");
-        }
-        if (strcmp (lang, "en") == 0) {
-            printf("Saturday\n");
-        }
-        if (strcmp (lang, "es") == 0) {
-            printf("sábado\n");
-        }
-        if (strcmp (lang, "ba") == 0) {
-            printf("larunbata\n");
-        }
-    }
+    
+    printf("%s\n", matriz[7*l+(rd%7)]);
 }
 
 

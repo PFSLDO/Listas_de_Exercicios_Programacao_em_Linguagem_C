@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 int max_vet(int vet[], int tam) {
-  int maior = -999;
+  int maior = vet[0];
   int i;
 
-  for (i = 0; i < tam; i ++) {
+  for (i = 1; i < tam; i ++) {
     if (vet[i] > maior) {
       maior = vet[i];
     }
