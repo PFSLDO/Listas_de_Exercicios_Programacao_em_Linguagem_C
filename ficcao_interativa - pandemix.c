@@ -112,7 +112,7 @@ int main() {
       break;
 
       case 8:
-        printf("\nVocê chegou em Brasília. Exitem duas vertentes de movimento se formando na frente do palácio. Digite:\nBALACLAVA, para vestir a máscara e se juntar aos anarquistas;\nPEACE, para se juntar ao movimento pacifista.\n");
+        printf("\nVocê chegou em Brasília. Existem duas vertentes de movimento se formando na frente do palácio. Digite:\nBALACLAVA, para vestir a máscara e se juntar aos anarquistas;\nPEACE, para se juntar ao movimento pacifista.\n");
 
         event[0] = '\0';
         fgets(event, sizeof(event), stdin);
