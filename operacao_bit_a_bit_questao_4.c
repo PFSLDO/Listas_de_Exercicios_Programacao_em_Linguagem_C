@@ -16,22 +16,24 @@ int main(void) {
   	float tempo = 1;
   	while(1) {
       	if(!TST_BIT(PINB,SELECAO)) {
-            PORTD = PORTD << 1; //desloca bit
-            SET_BIT(PORTD,PORTD); //acende o led decorrente do deslocamento anterior
-            if(PORTD == 0b11111111) { //acende o primeiro led quando todos estiverem apagados
-                PORTD = 0b11111110;
-            }
-          	if(PORTD == 0b01111110) { //correção de bug causado pela condição anterior; sem a correção, o primeiro led acende quando o último ainda está aceso, por causa do deslocamento de bit
-                PORTD = 0b01111111;
-            }
-            _delay_ms(100);
+          	while(1) {
+            	PORTD = PORTD << 1; //desloca bit
+                SET_BIT(PORTD,PORTD); //acende o led decorrente do deslocamento anterior
+                if(PORTD == 0b11111111) { //acende o primeiro led quando todos estiverem apagados
+                    PORTD = 0b11111110;
+                }
+                if(PORTD == 0b01111110) { //correção de bug causado pela condição anterior; sem a correção, o primeiro led acende quando o último ainda está aceso, por causa do deslocamento de bit
+                    PORTD = 0b01111111;
+                }
+                _delay_ms(100);
+          	}
     	}
       	if (!TST_BIT(PINB,AJUSTE)) {
         	seta = 1;
         }
       	while (seta == 1) {
             PORTD = PORTD << 1; //desloca bit
-            SET_BIT(PORTD,~PORTD); //acende o led decorrente do deslocamento anterior
+            SET_BIT(PORTD,(~PORTD)); //acende o led decorrente do deslocamento anterior
             if(PORTD == 0b11111111) { //acende o primeiro led quando todos estiverem apagados
                 PORTD = 0b11111110;
             }
