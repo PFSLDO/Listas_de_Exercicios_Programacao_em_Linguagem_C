@@ -1,3 +1,4 @@
+#define VPL_MOODLE
 #include <stdio.h>
 
 void calc_area_comp(float raio, float *area, float *comprimento) {
@@ -7,9 +8,14 @@ void calc_area_comp(float raio, float *area, float *comprimento) {
 
 int main(void) {
   float r, a, c;
-  printf("Digite o valor do raio\n");
+  #ifndef VPL_MOODLE
+  printf("Digite o raio:\n");
+  #endif
   scanf("%f", &r);
   calc_area_comp(r, &a, &c);
-  printf("Comprimento da circunferência: %f\nÁrea da circunferência: %f", c, a);
+  #ifndef VPL_MOODLE
+  printf("A área e o comprimento são, respectivamente, ");
+  #endif
+  printf("%.2f %.2f", a, c);
   return 0;
 }
