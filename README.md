@@ -957,3 +957,90 @@ int main(void) {
   	}
 }
 ```
+
+<h2 align="center">Cálculo da área e compr. circunferência</h2>
+<p align="justify">Faça uma função que receba o raio de um círculo e devolva o comprimento da  circunferência e a área. Use o protótipo abaixo
+Não use variáveis globais. Use ponteiros<br>
+main() pergunta o raio para o usuário, chama a função e depois imprime o resultado<br></p>
+
+```
+void calc_area_comp(float r, float *ar, float *comp);
+int main(void) {
+    float raio;
+    float area;
+    float comprimento;
+    calc_area_comp(raio, &area, &comprimento);
+    return 0;
+}
+```
+
+<h3 align="center">main.c</h3>
+
+```
+//#define VPL_MOODLE
+#include <stdio.h>
+
+void calc_area_comp(float r, float *ar, float *comp);
+
+int main(void) {
+    float raio;
+    float area;
+    float comprimento;
+    #ifndef VPL_MOODLE
+    printf("Digite o raio:");
+    #endif
+    scanf();
+
+    calc_area_comp(raio, &area, &comprimento);
+    
+    #ifndef VPL_MOODLE
+    printf("A área e o comprimento são, respectivamente, ");
+    #endif
+    print("%.2f %.2f");
+    return 0;
+}
+```
+<h2 align="center">Arquivo de temperaturas</h2>
+<p align="justify">Ler arquivo escrito no formato "hora,minuto,temperatura em Fahreinheit" (está na atividade). Ignorar a primeira linha. Mostrar a maior temperatura (apresentando-a em graus Fahrenheit e Celsius). Mostrar a menor temperatura (apresentando-a em graus Fahrenheit e Celsius)<br>
+A conversão de temperatura deve ser feita usando uma função float fahr2celsius(float tf)<br></p>
+
+<h3 align="center">main.c</h3>
+
+```
+#include <stdio.h>
+
+float fahr2celsius(float tf); 
+
+int main() {
+    
+    // Ler arquivo dados_temperatura_thingspeak.csv
+    // Verificar qual maior temperatura e qual menor
+    // Converter para Fahrenheit usando função
+    // Mostrar
+    
+    printf("Maior temperatura: %.2f F = %.2f C",);
+    printf("Menor temperatura: %.2f F = %.2f C",);
+    return 0;
+}
+```
+
+<h2 align="center">Atividade ThingSpeak</h2>
+<h3 align="center">Pré-atividade</h3>
+<p align="justify">Escolher uma fonte de dados em https://thingspeak.com/channels/public<br>
+Obter um arquivo .csv clicando em Data Export<br>
+Observe como a data é formatada nesse arquivo.<br></p>
+<h3 align="center">Programação</h3>
+<p align="justify">Leia o arquivo obtido e mostre a data (dia, mês, ano, hora e minuto) em que ocorreu o evento com maior valor. Envie o arquivo .c e também o arquivo de dados .csv. No cabeçalho do arquivo .c, informe o canal de onde você obteve os dados. Por exemplo, https://thingspeak.com/channels/265086<br>
+Você pode obter os dados também de: https://fpacheco.tk/dashboard/snapshot/ogKB9NLHsTbjP7ELZhStTRCfQG5AjmQF?orgId=1.<br></p>
+
+<h2 align="center">Atividade PGMA</h2>
+<p align="justify">O formato de imagem PGMA (ASCII Portable Gray Map) armazena uma imagem como uma matriz em modo texto. Confira o exemplo em http://people.sc.fsu.edu/~jburkardt/data/pgma/pgma.html<br>
+Nesta atividade, você deve criar arquivos (ou seja, escrever) no formato PGMA. Depois, você pode ver o resultado em algum programa de imagens, como o IrfanView.<br>
+Comece com uma imagem 10x10. Observe que o arquivo PGMA exige um cabeçalho específico além dos dados. Faça um primeiro teste criando uma imagem toda em preto.<br>
+Depois de ter certeza que seu programa funcionou, você deve gerar 4 arquivos de imagem PGMA, cada um com um nome diferente e tamanho mínimo de 10x10.<br>
+1) Diagonal em branco<br>
+2) Diagonal em degradê (do preto para o branco)<br>
+3) Cruz<br>
+4) Desenho Livre<br>
+Você deve verificar se está funcionando com o Irfan View ou algum outro software (edit: utilizei o próprio Preview do MacOS).<br>
+Mande o código-fonte.<br></p>
