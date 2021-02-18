@@ -30,9 +30,7 @@ int main() {
         }
         if (t>maxf) {
             maxf = t;
-        }
-        //printf("Hora: %d Minuto: %d Temperatura: %f \n", h, m, t);
-       
+        }  
     }
     fclose(fileptr);
     fahr2celsius(minf, maxf, &minc, &maxc);
