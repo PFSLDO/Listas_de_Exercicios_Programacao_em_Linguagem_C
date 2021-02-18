@@ -1044,3 +1044,461 @@ Depois de ter certeza que seu programa funcionou, você deve gerar 4 arquivos de
 4) Desenho Livre<br>
 Você deve verificar se está funcionando com o Irfan View ou algum outro software (edit: utilizei o próprio Preview do MacOS).<br>
 Mande o código-fonte.<br></p>
+
+<h2 align="center">Etapa 1 Vinil</h2>
+<p align="justify">Etapa 1. Sua coleção só tem dois discos :-(<br>
+Complete o código seguinte para:<br>
+a) fazer a leitura de três informações de cada disco: nome do disco, ano de lançamento, preço de aquisição.<br>
+b) informar qual é o disco mais antigo.<br></p>
+
+<h3 align="center">etapa1_vinil.c</h3>
+
+```
+/*Etapa 1*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  char vinil1_nome[20], vinil2_nome[20];
+  int vinil1_ano, vinil2_ano;
+  float vinil1_preco, vinil2_preco;
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%19s", vinil1_nome); // lembrar que com scanf não é possível colocar espaço na string
+  scanf("%d", &vinil1_ano);
+  scanf("%f", vinil1_preco);	// <<-- aqui tem um erro que deve ser corrigido
+
+// *** Crie o mesmo para o vinil 2
+
+// apresentacao dos dados (para conferir se entrada está ok fora da avaliação automática)
+#ifndef AVALIA_VPL_MOODLE
+  printf ("Vinil1\n");
+  printf ("Nome: %s\n", vinil1_nome);
+  printf ("Ano: %f\n", vinil1_ano);	// <<-- aqui tem um erro que deve ser corrigido
+  printf ("Preco: %f\n", vinil1_preco);
+
+// *** Crie o mesmo para o vinil 2
+
+#endif // AVALIA_VPL_MOODLE
+  
+// Verifica qual é o mais antigo
+  if (vinil1_ano = vinil2_ano) { // <<-- aqui tem um erro que deve ser corrigido
+      printf ("%s eh mais antigo que %s", vinil1_nome, vinil2_nome);
+  }
+  else {
+      printf ("%s eh mais antigo que %s", vinil2_nome, vinil1_nome);
+  }
+  
+  return 0;
+}
+```
+
+<h2 align="center">Etapa 2 Vinil</h2>
+<p align="justify">Etapa 2. Sua coleção ainda tem 2 discos, mas você aprendeu a separar o código em funções.<br>
+Complete o código para:<br>
+a) informar qual é o disco mais antigo usando uma função que retorna 1 se for o disco 1 e 2 se for o disco 2. O resultado da função deve ser usado no main() para apresentar a informação ao usuário em formato "humano".<br></p>
+
+<h3 align="center">etapa2_vinil.c</h3>
+
+```
+/* Etapa 2*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+#include <string.h>
+
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco);
+int verifica_mais_antigo(int v1_ano, int v2_ano);
+
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  char vinil1_nome[20], vinil2_nome[20];
+  int vinil1_ano, vinil2_ano;
+  float vinil1_preco, vinil2_preco;
+  int mais_antigo;
+
+// leitura de dados
+  le_dados_teclado(vinil1_nome, &vinil1_ano, &vinil1_preco);
+  le_dados_teclado(vinil2_nome, &vinil2_ano, &vinil2_preco);
+
+// apresentacao dos dados (para conferir se entrada está ok)
+#ifndef AVALIA_VPL_MOODLE
+  printf ("Vinil1\n");
+  printf ("Nome: %s\n", vinil1_nome);
+  printf ("Ano: %d\n", vinil1_ano);	// <<-- aqui tem um ERRO que deve ser corrigido
+  printf ("Preco: %f\n", vinil1_preco);
+// *** Crie o mesmo para o vinil 2
+
+#endif // AVALIA_VPL_MOODLE
+
+// Verifica qual é o mais antigo
+mais_antigo = verifica_mais_antigo(vinil1_ano, vinil2_ano);
+if (mais_antigo=1) { //  <<-- aqui tem um ERRO para corrigir
+  printf(""); //TODO (fazer)
+}
+else {
+  printf(""); //TODO
+}
+
+return 0;
+}
+
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco) {
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%19s", nome);
+  scanf("%d", ptr_ano);
+  scanf("%f", ptr_preco);
+}
+
+int verifica_mais_antigo(int v1_ano, int v2_ano) {
+  return 0; // TODO fazer verificação e retornar 1 se vinil1 e 2 se vinil2
+}
+```
+
+<h2 align="center">Etapa 3 Vinil</h2>
+<p align="justify">Etapa 3. Sua coleção tem 4 discos (oba, está aumentando). Começa a ficar difícil trabalhar só com variáveis isoladas. Então, você irá usar vetores.<br>
+Complete o código para:<br>
+a) fazer a leitura de três informações de N discos: nome do disco, ano de lançamento, preço de aquisição.<br>
+b) informar qual é o disco mais antigo usando uma função.<br></p>
+
+<h3 align="center">etapa3_vinil.c</h3>
+
+```
+/* Etapa 3*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+#include <string.h>
+
+/* Recebe três dados para serem preenchidos a partir do le_dados_teclado
+ * Entrada: uma string, um ptr para int, um ptr para float
+ * Retorno: nenhum
+*/
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco);
+
+/* Recebe um vetor e retorna o índice do menor elemento
+ * Entrada : vetor para int, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com menor valor (neste caso, o menor ano, ou seja, o mais antigo
+*/
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor);
+
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  char vinil_nome[2][20];  // <<-- comece testando com dois discos, para 
+  // ser mais rápido de digitar. Depois, altere tudo para o número solicitado (4)
+  int vinil_ano[2];
+  float vinil_preco; // <<-- aqui tem algo a completar
+  int mais_antigo, k;
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+#endif // AVALIA_VPL_MOODLE
+  for (k=0; k<0; k++) { // <<-- aqui tem um erro para corrigir
+    le_dados_teclado(vinil_nome[k], &vinil_ano[k], &vinil_preco[k]);
+  }
+
+// apresentacao dos dados (para conferir se entrada está ok)
+#ifndef AVALIA_VPL_MOODLE
+  for (k=0; k<2; k++) {
+  printf("Vinil número %d\n", k); // <<-- aqui, fazer com que o primeiro apareça na tela como 1, não como 0
+  printf("Nome: %s\n", vinil_nome[k]);
+  printf("Ano: %d\n", vinil_ano); // <<-- aqui tem um erro a corrigir
+  printf("Preco: %f\n", vinil_preco[k]);
+}
+#endif // AVALIA_VPL_MOODLE
+
+// Verifica qual é o mais antigo
+mais_antigo = verifica_mais_antigo(vinil_ano, 2);
+printf("O vinil mais antigo eh: %s, do ano de %d\n", vinil_nome[mais_antigo], ); // <<-- aqui tem algo a completar
+
+return 0;
+}
+
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco) { // OBSERVE que essa função não mudou nada da versão anterior
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%19s", nome);
+  scanf("%d", ptr_ano);
+  scanf("%f", ptr_preco);
+}
+
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor) {
+  int k;
+  int ano_mais_antigo=vi_ano[0];
+  int indice_mais_antigo=0;
+  for () { // <<--aqui tem algo a completar
+    if () { // <<--aqui tem algo a completar
+      indice_mais_antigo = k;
+      ano_mais_antigo = 0; // <<-- aqui tem algo a corrigir
+    }
+  }
+  return indice_mais_antigo;
+}
+```
+
+<h2 align="center">Etapa 4 Vinil</h2>
+<p align="justify">Etapa 4. Sua coleção continua com 4 discos e você continua usando vetores para armazenar os dados. O que muda em relação à etapa 3 é que você gostaria de saber qual o disco mais caro da coleção.<br>
+Complete o código para:<br>
+a) fazer a leitura de três informações de N discos: nome do disco, ano de lançamento, preço de aquisição (igual à etapa 3).<br>
+b) informar qual é o disco mais antigo usando uma função (igual à etapa 3).<br>
+C) informar qual é o disco mais caro usando uma função.<br></p>
+
+<h3 align="center">etapa4_vinil.c</h3>
+
+```
+/* Etapa 4*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+#include <string.h>
+
+/* Recebe três dados para serem preenchidos a partir do teclado
+ * Entrada: uma string, um ptr para int, um ptr para float
+ * Retorno: nenhum
+*/
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco);
+
+/* Recebe um vetor e retorna o índice do menor elemento
+ * Entrada : vetor para int, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com menor valor (neste caso, o menor ano, ou seja, o mais antigo
+*/
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor);
+
+/* Recebe um vetor e retorna o índice do elemento com maior valor
+ * Entrada : vetor para float, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com maior valor (neste caso, o maior preco, ou seja, o mais caro
+*/
+int verifica_mais_caro(float vi_preco[], int tamanho_vetor);
+
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  char vinil_nome[2][20];  // <<-- comece testando com dois discos, para 
+  // ser mais rápido de digitar. Depois, altere tudo para o número solicitado (4)
+  int vinil_ano[2];
+  float vinil_preco; // <<-- aqui tem algo a completar
+  int mais_antigo, mais_caro, k;
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+#endif // AVALIA_VPL_MOODLE
+  for (k=0; k<0; k++) { // <<-- aqui tem um erro para corrigir
+    le_dados_teclado(vinil_nome[k], &vinil_ano[k], &vinil_preco[k]);
+  }
+
+// apresentacao dos dados (para conferir se entrada está ok)
+#ifndef AVALIA_VPL_MOODLE
+  for (k=0; k<2; k++) {
+  printf("Vinil número %d\n", k); // <<-- aqui, fazer com que o primeiro apareça na tela como 1, não como 0
+  printf("Nome: %s\n", vinil_nome[k]);
+  printf("Ano: %d\n", vinil_ano); // <<-- aqui tem um erro a corrigir
+  printf("Preco: %f\n", vinil_preco[k]);
+}
+#endif // AVALIA_VPL_MOODLE
+
+// Verifica qual é o mais antigo
+mais_antigo = verifica_mais_antigo(vinil_ano, 2);
+printf("O vinil mais antigo eh: %s, do ano de %d\n", vinil_nome[mais_antigo], ); // <<-- aqui tem algo a completar
+
+// Verifica qual é o mais caro
+mais_caro = verifica_mais_caro(vinil_preco, 2);
+printf("O vinil mais caro eh: %s, com preco de %.2f\n", vinil_nome[mais_antigo], ); // <<-- aqui tem algo a completar e corrigir
+
+return 0;
+}
+
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco) { // OBSERVE que essa função não mudou nada da versão anterior
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%19s", nome);
+  scanf("%d", ptr_ano);
+  scanf("%f", ptr_preco);
+}
+
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor) {
+  int k;
+  int ano_mais_antigo=vi_ano[0];
+  int indice_mais_antigo=0;
+  for () { // <<--aqui tem algo a completar
+    if () { // <<--aqui tem algo a completar
+      indice_mais_antigo = k;
+      ano_mais_antigo = 0; // <<-- aqui tem algo a corrigir
+    }
+  }
+  return indice_mais_antigo;
+}
+
+int verifica_mais_caro(float vi_preco[], int tamanho_vetor) {
+  return 0; // TODO FAZER
+}
+```
+
+<h2 align="center">Etapa 5 Vinil</h2>
+<p align="justify">Etapa 5. Como a coleção está aumentando, também fica chato ter que digitar tudo a cada vez que o programa é iniciado. Você irá obter os dados de um arquivo.<br>
+Complete o código para:<br>
+a) poder escolher entre digitar os dados ou ler um arquivo.<br>
+b) fazer a leitura de três informações de N discos a partir de um arquivo.<br>
+c) informar qual é o disco mais antigo usando uma função (igual à etapa 3).<br>
+d) informar qual é o disco mais caro usando uma função (igual à etapa 4).<br></p>
+
+<h3 align="center">etapa5_vinil.c</h3>
+
+```
+/* Etapa 5*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#define NUM_DISCOS 6
+
+#include <stdio.h>
+#include <string.h>
+
+/* Recebe três dados para serem preenchidos a partir do teclado
+ * Entrada: uma string, um ptr para int, um ptr para float
+ * Retorno: nenhum
+*/
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco);
+
+/* Recebe um vetor e retorna o índice do menor elemento
+ * Entrada : vetor para int, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com menor valor (neste caso, o menor ano, ou seja, o mais antigo
+*/
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor);
+
+/* Recebe um vetor e retorna o índice do elemento com maior valor
+ * Entrada : vetor para float, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com maior valor (neste caso, o maior preco, ou seja, o mais caro
+*/
+int verifica_mais_caro(float vi_preco[], int tamanho_vetor);
+
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  char vinil_nome[NUM_DISCOS][20];
+  int vinil_ano[NUM_DISCOS];
+  float vinil_preco[NUM_DISCOS];
+  int mais_antigo, mais_caro, k;
+  int ncolunas, nlinha, num_discos_lidos;
+  int opcao_entrada;
+  char nome_arquivo[30];
+  FILE *fptr;
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+  printf("Voce deseja digitar os dados ou ler de um arquivo?\n");
+  printf("Escolha 1 para digitar ou 2 para arquivo: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%d", &opcao_entrada);
+  switch () { // <<-- aqui tem algo a completar
+    case 1:
+      for (k=0; k<NUM_DISCOS; k++) {
+        le_dados_teclado(vinil_nome[k], &vinil_ano[k], &vinil_preco[k]);
+      }
+      num_discos_lidos = NUM_DISCOS;
+      break;
+    case 2:
+#ifndef AVALIA_VPL_MOODLE
+      printf("Digite o nome do arquivo:");
+#endif // AVALIA_VPL_MOODLE
+      scanf("%29s", ); // <<-- aqui tem algo a completar
+
+      fptr = fopen(); // <<-- aqui tem algo a completar
+      if (!fptr) {
+        printf("Erro ao abrir arquivo %s\n", nome_arquivo);
+        return -1;
+      }
+      nlinha=0;
+      while (nlinha<NUM_DISCOS) {
+        ncolunas = fscanf(fptr, "%[^,],%d,%f\n", vinil_nome[nlinha], ); // <<-- aqui tem algo a completar
+        if (ncolunas!=3) {
+           break;
+        }
+        nlinha++;
+      }
+      num_discos_lidos = nlinha;
+      print("Foram lidos dados de %d discos\n", num_discos_lidos);
+      // <<-- aqui falta um comando
+
+    default:
+      printf("Opção inválida.\n");
+      return 0;
+  }
+
+// apresentacao dos dados (para conferir se entrada está ok)
+#ifndef AVALIA_VPL_MOODLE
+  for (k=0; k<NUM_DISCOS; k++) {
+  printf ("Vinil número %d\n", k); // <<-- aqui, fazer com que o primeiro apareça na tela como 1, não como 0
+  printf ("Nome: %s\n", vinil_nome[k]);
+  printf ("Ano: %d\n", vinil_ano[k]);
+  printf ("Preco: %f\n", vinil_preco[k]);
+}
+#endif // AVALIA_VPL_MOODLE
+
+  // Verifica qual é o mais antigo
+  mais_antigo = verifica_mais_antigo(vinil_ano, num_discos_lidos);
+  printf("O vinil mais antigo eh: %s, do ano de %d\n", vinil_nome[mais_antigo], vinil_ano[mais_antigo]);
+
+  // Verifica qual é o mais caro
+  mais_caro = verifica_mais_caro(vinil_preco, num_discos_lidos);
+  printf("O vinil mais caro eh: %s, com preco de %.2f\n", vinil_nome[mais_caro], vinil_preco[mais_caro]);
+
+  return 0;
+}
+
+void le_dados_teclado(char nome[], int* ptr_ano, float* ptr_preco) {
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%19s", nome);
+  scanf("%d", ptr_ano);
+  scanf("%f", ptr_preco);
+}
+
+int verifica_mais_antigo(int vi_ano[], int tamanho_vetor) {
+  return 0; // <<-- colocar o que você fez nas etapas anteriores
+}
+
+int verifica_mais_caro(float vi_preco[], int tamanho_vetor) {
+  return 0; // <<-- colocar o que você fez nas etapas anteriores
+}
+```
