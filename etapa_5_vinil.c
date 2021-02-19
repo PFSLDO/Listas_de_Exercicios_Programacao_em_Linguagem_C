@@ -75,7 +75,7 @@ int main (void)
       while (nlinha<NUM_DISCOS) {
         ncolunas = fscanf(fptr, "%[^,],%d,%f\n", &vinil_nome[nlinha], &vinil_ano[nlinha], &vinil_preco[nlinha]);
         if (ncolunas==EOF) {
-            break;
+          break;
         }
         nlinha++;
       }
