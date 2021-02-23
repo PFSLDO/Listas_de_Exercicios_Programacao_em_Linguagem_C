@@ -1,9 +1,9 @@
 #include "vinil6.h"
 
 void le_dados_teclado(struct Vinil *vi) {
-  scanf("%19s", vi->nome);
-  scanf("%d", vi->ano);
-  scanf("%f", vi->preco);
+  scanf("%19s", &vi->nome);
+  scanf("%d", &vi->ano);
+  scanf("%f", &vi->preco);
 }
 
 int verifica_mais_antigo(const struct Vinil vi[], int tamanho_vetor) {
