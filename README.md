@@ -1502,3 +1502,541 @@ int verifica_mais_caro(float vi_preco[], int tamanho_vetor) {
   return 0; // <<-- colocar o que você fez nas etapas anteriores
 }
 ```
+
+<h2 align="center">Struct 1: Vinil</h2>
+<p align="justify">Struct Vinil. Vamos continuar usando o exemplo da coleção de discos de vinil. Nesse primeiro uso de estruturas, você irá definir a struct e preencher uma única instância (só um disco).<br>
+Complete o código para:<br>
+a) Definir uma struct com os seguintes campos:<br>
+nome: nome do disco (string com 20 caracteres),<br>
+ano: ano de lançamento (valor inteiro),<br>
+preco: preço de aquisição (valor em ponto flutuante)<br>
+b) preencher uma instância dessa struct usando entrada a partir do teclado<br>
+c) mostrar os valores que foram preenchidos<br></p>
+
+<h3 align="center">vinil_struct1.c</h3>
+
+```
+/* Struct 1 Vinil*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+
+// organizacao ("estrutura") dos dados
+// usando STRUCT
+
+struct Vinil {
+    char nome[20]; 
+    // TODO
+    //TODO
+};
+
+int main (void)
+{
+  struct Vinil vi1; // cria a instância vi1
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%19s", vi1.nome); // lembrar que com scanf não é possível colocar espaço na string
+  scanf( //TODO
+  scanf( //TODO
+
+// apresentacao dos dados (para conferir se entrada está ok)
+  printf ("Nome: %s\n", vi1.nome);
+  printf ("Ano:  // TODO
+  printf ("Preco: // TODO
+
+  return 0;
+}
+
+```
+
+<h2 align="center">Struct 2: Ponto e Retângulo</h2>
+<p align="justify">Neste exercício, você irá definir duas struct e usá-las.<br>
+Complete o código para:<br>
+a) Definir uma struct Ponto2D com os seguintes campos:<br>
+x: coordenada x de um ponto no plano (float)<br>
+y: coordenada y de um ponto no plano (float)<br>
+b) Definir uma struct Retangulo com os seguintes campos:<br>
+pse: ponto superior esquerdo (struct Ponto2D)<br>
+pid: ponto inferior direito (struct Ponto2D)<br>
+c) criar uma instância pA de ponto2D<br>
+d) criar uma instância ret de Retangulo<br>
+e) preencher as coordenadas do ponto pA e do retângulo<br>
+f) mostrar as coordenadas do ponto pA e do retângulo<br></p>
+
+<h3 align="center">ponto_retangulo_struct.c</h3>
+
+```
+/* Struct 2 Ponto e Retangulo*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+
+// organizacao ("estrutura") dos dados
+// usando STRUCT
+
+struct Ponto2D {
+    float x; 
+    //TODO
+};
+
+struct Retangulo {
+    struct Ponto2D pse;
+    //TODO
+};
+
+int main (void)
+{
+  struct Ponto2D pA; // cria a instância
+  struct Retangulo ret; // criar a instância
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y de um ponto, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", pA.x);
+  scanf( //TODO
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto superior esquerdo de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", ret.pse.x);
+  scanf( //TODO
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto inferior direito de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf( //TODO
+  scanf( //TODO
+
+// apresentacao dos dados (para conferir se entrada está ok)
+  printf ("Ponto A: (%.2f,%.2f)\n", pA.x, pA.y);
+  printf ("Retangulo: canto S.E. (%.2f,%.2f)\n",  // TODO
+  printf ("Retangulo: canto I.D. (%.2f,%.2f)\n",  // TODO
+
+  return 0;
+}
+
+```
+
+<h2 align="center">Struct 3: Função cálculo da distância</h2>
+<p align="justify">Neste exercício, você irá usar as duas structs criadas anteriormente para calcular a distância entre dois pontos no plano.
+Complete o código para:<br>
+a) fazer tudo que foi feito na etapa anterior<br>
+b) Implementar uma função calcDistancia que recebe dois pontos e calcula a distância (Euclidiana) entre eles, tendo como entrada duas instâncias da struct Ponto2D (com campos float x e y) e como retorno, o valor da distância (double)<br>
+c) mostrar o resultado da distância entre o ponto A e o canto superior direito do retângulo<br>
+d) mostrar o resultado do tamanho da diagonal do retângulo<br></p>
+
+<h3 align="center">funcao_struct.c</h3>
+
+```
+/* Struct 3 Função com struct*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+
+// organizacao ("estrutura") dos dados
+// usando STRUCT
+
+// TODO: COPIE AS DEFINIÇÕES DE STRUCTS QUE VOCÊ CRIOU NA ETAPA ANTERIOR
+
+
+/* Recebe dois pontos e calcula distância (Euclidiana) entre eles
+ * Entrada: duas instâncias da struct Ponto2D (com campos float x e y)
+ * Retorno: valor da distância (double)
+*/
+double calcDistancia(struct Ponto2D p1, struct Ponto2D p2);
+
+int main (void)
+{
+
+//TODO: COPIE TUDO QUE VOCÊ FEZ NA ETAPA ANTERIOR
+  
+
+  float d = distancia_pontos(pA, ret.pse);
+  printf("A distancia entre o ponto A e o canto superior esquerdo do retangulo: %.2f", d);    
+
+  d = distancia_pontos( //TODO
+  printf("A diagonal do retangulo: %.2f", d);    
+
+  return 0;
+}
+
+double calcDistancia(struct Ponto2D p1, struct Ponto2D p2) {
+    d = p1.x - p2.x// TODO
+}
+
+```
+
+<h2 align="center">Struct 4: Ponteiros para Ponto e Retângulo</h2>
+<p align="justify">Neste exercício, você irá definir duas structs e usá-las (partes a até d são iguais ao exercício Struct 2).
+Complete o código para:<br>
+a) Definir uma struct Ponto2D com os seguintes campos:<br>
+x: coordenada x de um ponto no plano (float)<br>
+y: coordenada y de um ponto no plano (float)<br>
+b) Definir uma struct Retangulo com os seguintes campos:<br>
+pse: ponto superior esquerdo (struct Ponto2D)<br>
+pid: ponto inferior direito (struct Ponto2D)<br>
+c) criar uma instância pA de ponto2D<br>
+d) criar uma instância ret de Retangulo<br>
+e) criar um ponteiro para pA<br>
+f) criar um ponteiro para ret<br>
+g) preencher as coordenadas do ponto pA e do retângulo<br>
+h) mostrar as coordenadas do ponto pA e do retângulo usando ponteiros<br></p>
+
+<h3 align="center">ponto_retangulo_struct.c</h3>
+
+```
+/* Struct 4 Ponteiros para Ponto e Retangulo*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+
+// organizacao ("estrutura") dos dados
+// usando STRUCT
+struct Ponto2D {
+    float x; 
+    //TODO
+};
+
+struct Retangulo {
+    struct Ponto2D pse;
+    //TODO
+};
+
+int main (void)
+{
+  struct Ponto2D pA; // cria a instância
+  struct Retangulo ret; // criar a instância
+  
+  struct Ponto2D ptrpA = &pA;
+  struct Ponto2D ptrret ; //TODO
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y de um ponto, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", &pA.x);
+  scanf( //TODO
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto superior esquerdo de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", &ret.pse.x);
+  scanf( //TODO
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto inferior direito de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf( //TODO
+  scanf( //TODO
+
+// apresentacao dos dados (para conferir se entrada está ok)
+  printf ("Ponto A: (%.2f,%.2f)\n", ptrpA->x, ); //TODO
+  printf ("Retangulo: canto S.E. (%.2f,%.2f)\n", ptrret->pse.x, // TODO
+  printf ("Retangulo: canto I.D. (%.2f,%.2f)\n",  // TODO
+
+  return 0;
+}
+
+```
+
+<h2 align="center">Struct 5: Ponteiros na função cálculo da distância (3 arquivos)</h2>
+<p align="justify">Neste exercício, você irá usar as duas structs criadas anteriormente para calcular a distância entre dois pontos no plano.
+Complete o código para:<br>
+a) fazer tudo que foi feito na etapa anterior<br>
+b) Implementar uma função calcDistanciaPtr que recebe dois pontos e calcula a distância (Euclidiana) entre eles, tendo como entrada dois ponteiros para instâncias de Ponto2D e, como retorno, o valor da distância (double)<br>
+c) mostrar o resultado da distância entre o ponto A e o canto superior direito do retângulo<br>
+d) mostrar o resultado do tamanho da diagonal do retângulo<br>
+Neste exercício, separamos a função main em um arquivo e a implementação da função do cálculo da distância em outro. Essa prática é muito usada em projetos maiores, pela modularidade que proporciona.<br></p>
+
+<h3 align="center">main_struct5.c</h3>
+
+```
+/* Struct 5 Ponteiros na Função cálculo da distância*/
+
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#define AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+#include "struct5.h"
+
+int main (void)
+{
+  struct Ponto2D pA; // cria a instância
+  struct Retangulo ret; // cria a instância
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y de um ponto, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", &pA.x);
+  scanf("%f", &pA.y);
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto superior esquerdo de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", &ret.pse.x);
+  scanf("%f", &ret.pse.y);
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite as coordenadas x e y do canto inferior direito de um retângulo, separados por enter: ");
+#endif //AVALIA_VPL_MOODLE
+  scanf("%f", &ret.pid.x);
+  scanf("%f", &ret.pid.y);
+
+// apresentacao dos dados (para conferir se entrada está ok)
+  printf ("Ponto A: (%.2f,%.2f)\n", pA.x, pA.y);
+  printf ("Retangulo: canto S.E. (%.2f,%.2f)\n", ret.pse.x, ret.pse.y);
+  printf ("Retangulo: canto I.D. (%.2f,%.2f)\n", ret.pid.x, ret.pid.y);
+  
+
+  float d = calcDistancia_ponteiro(&pA, &ret.pse);
+  printf("A distancia entre o ponto A e o canto superior esquerdo do retangulo: %.2f\n", d);    
+
+  d = calcDistancia_ponteiro( //TODO
+  printf("A diagonal do retangulo: %.2f\n", d);    
+
+  return 0;
+}
+
+```
+
+<h3 align="center">struct5.h</h3>
+
+```
+#ifndef PONTO_RETANG5_H_INCLUDED
+#define PONTO_RETANG5_H_INCLUDED
+
+// No arquivo .h (ESTE AQUI) são feitas as DEFINIÇÕES de structs e de funções, mas não a implementação
+// organizacao ("estrutura") dos dados
+// usando STRUCT
+
+// TODO: COPIE AS DEFINIÇÕES DE STRUCTS QUE VOCÊ CRIOU ANTES (Ponto2D e Retangulo)
+struct Ponto2D { //TODO
+
+
+/* Recebe dois pontos e calcula distância (Euclidiana) entre eles
+ * Entrada: dois ponteiros para struct Ponto2D (com campos float x e y)
+ * Retorno: valor da distância (double)
+*/
+// Aqui é só o PROTÒTIPO (ou assinatura) da função. O código é escrito no arquivo .c
+double calcDistancia_ponteiro(struct Ponto2D *p1, struct Ponto2D *p2);
+
+#endif // PONTO_RETANG5_H_INCLUDED
+
+```
+
+<h3 align="center">funcoes_struct5.c</h3>
+
+```
+/* Struct 5 Ponteiros na Função cálculo da distância*/
+
+#include "struct5.h"
+#include <math.h>
+
+/* Recebe dois pontos e calcula distância (Euclidiana) entre eles
+ * Entrada: dois ponteiros para struct Ponto2D (com campos float x e y)
+ * Retorno: valor da distância (double)
+*/
+// aqui é a IMPLEMENTAÇÃO (CÓDIGO da função)
+double calcDistancia_ponteiro(struct Ponto2D *p1, struct Ponto2D *p2) {
+    d = p1->x - p2->x// TODO
+}
+
+```
+
+<h2 align="center">Etapa 6 Vinil: structs</h2>
+<p align="justify">Etapa 6. Vamos refinar a etapa 5 da coleção de discos de vinil, usando agora structs.<br>
+Você irá obter os dados de um arquivo.<br>
+Complete o código para:<br>
+a) poder escolher entre digitar os dados ou ler um arquivo.<br>
+b) fazer a leitura das três informações de N discos a partir de um arquivo.<br>
+c) informar qual é o disco mais antigo usando uma função (com struct).<br>
+d) informar qual é o disco mais caro usando uma função (com struct).<br></p>
+
+<h3 align="center">etapa6_main_vinil.c</h3>
+
+```
+/* Etapa 6*/
+
+#define NUM_MAX_DISCOS 2
+
+#include "vinil6.h"
+
+int main (void)
+{
+// organizacao ("estrutura") dos dados
+  struct Vinil vi[NUM_MAX_DISCOS];
+  int mais_antigo, mais_caro, k;
+  int ncolunas, nlinha, num_discos_lidos;
+  int opcao_entrada;
+  char nome_arquivo[30];
+  FILE *fptr;
+
+// leitura de dados
+#ifndef AVALIA_VPL_MOODLE
+  printf("Cadastro de discos de vinil\n");
+  printf("Voce deseja digitar os dados ou ler de um arquivo?\n");
+  printf("Escolha 1 para digitar ou 2 para arquivo: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%d", &opcao_entrada);
+  switch (opcao_entrada) {
+    case 1:
+      for (k=0; k<NUM_MAX_DISCOS; k++) {
+        le_dados_teclado(&vi[k]);
+      }
+      num_discos_lidos = NUM_MAX_DISCOS;
+      break;
+    case 2:
+      scanf("%29s", nome_arquivo);
+
+      fptr = fopen(nome_arquivo, "r");
+      if (!fptr) {
+        printf("Erro ao abrir arquivo %s\n", nome_arquivo);
+        return -1;
+      }
+      nlinha=0;
+      while (nlinha<NUM_MAX_DISCOS) {
+        ncolunas = fscanf(fptr, "%[^,],%d,%f\n", vi[nlinha].nome, &vi[nlinha].ano, ); // TODO
+        if (ncolunas!=3) {
+           break;
+        }
+        nlinha++;
+      }
+      num_discos_lidos = nlinha;
+      printf("Foram lidos dados de %d discos\n", num_discos_lidos);
+      break;
+
+    default:
+      printf("Opção inválida.\n");
+      return 0;
+  }
+
+// apresentacao dos dados (para conferir se entrada está ok)
+#ifndef AVALIA_VPL_MOODLE
+  for (k=0; k<num_discos_lidos; k++) {
+    printf ("Vinil número %d\n", k+1); // <<-- aqui, fazer com que o primeiro apareça na tela como 1, não como 0
+    printf ("Nome: %s\n", vi[k].nome);
+    printf ("Ano: %d\n", vi[k].ano);
+    printf ("Preco: %.2f\n", vi[k].preco);
+}
+#endif // AVALIA_VPL_MOODLE
+
+  // Verifica qual é o mais antigo
+  mais_antigo = verifica_mais_antigo(vi, num_discos_lidos);
+  printf("O vinil mais antigo eh: %s, do ano de %d\n", vi[mais_antigo].nome, // TODO (fazer)
+
+  // Verifica qual é o mais caro
+  mais_caro = verifica_mais_caro(); // TODO
+  printf("O vinil mais caro eh: %s, com preco de %.2f\n", vi[mais_caro].nome, // TODO
+
+return 0;
+}
+
+```
+
+<h3 align="center">vinil6.h</h3>
+
+```
+// O define seguinte serve para desativar saída de conferência de dados no VPL (ifndef)
+// É necessário para executar a avaliação automática
+// Para usar fora da avaliação automática, troque por:
+// #undef AVALIA_VPL_MOODLE
+#undef AVALIA_VPL_MOODLE
+
+#include <stdio.h>
+
+struct Vinil {
+    char nome[20];
+    // TODO
+};
+
+/* Recebe dados para serem preenchidos a partir do teclado
+ * Entrada: um ptr para struct Vinil
+ * Retorno: nenhum
+*/
+void le_dados_teclado(struct Vinil *vi);
+
+/* Recebe um vetor e retorna o índice do menor elemento
+ * Entrada : vetor para struct Vinil, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com menor valor (neste caso, o menor ano, ou seja, o mais antigo)
+*/
+int verifica_mais_antigo(const struct Vinil vi[], int tamanho_vetor);
+
+/* Recebe um vetor e retorna o índice do elemento com maior valor
+ * Entrada : vetor para struct Vinil, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com maior valor (neste caso, o maior preco, ou seja, o mais caro)
+*/
+int verifica_mais_caro(const struct Vinil vi[], int tamanho_vetor);
+
+```
+
+<h3 align="center">funcoes_vinil6.c</h3>
+
+```
+#include "vinil6.h"
+
+/* Recebe dados para serem preenchidos a partir do teclado
+ * Entrada: um ptr para struct Vinil
+ * Retorno: nenhum
+*/void le_dados_teclado(struct Vinil *vi) {
+#ifndef AVALIA_VPL_MOODLE
+  printf("Digite nome, ano e preco, separados por enter: ");
+#endif // AVALIA_VPL_MOODLE
+  scanf("%19s", vi->nome);
+  //TODO
+}
+
+/* Recebe um vetor e retorna o índice do menor elemento
+ * Entrada : vetor para struct Vinil, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com menor valor (neste caso, o menor ano, ou seja, o mais antigo)
+*/
+int verifica_mais_antigo(const struct Vinil vi[], int tamanho_vetor) {
+  int k;
+  int ano_mais_antigo=vi[0].ano;
+  int indice_mais_antigo=0;
+  for (k=1; k<tamanho_vetor; k++) {
+    if (//TODO
+    }
+  }
+  return indice_mais_antigo;
+}
+
+/* Recebe um vetor e retorna o índice do elemento com maior valor
+ * Entrada : vetor para struct Vinil, inteiro com o tamanho do vetor
+ * Retorno: índice (int) do elemento com maior valor (neste caso, o maior preco, ou seja, o mais caro)
+*/
+int verifica_mais_caro(const struct Vinil vi[], int tamanho_vetor) {
+  int k;
+  int preco_mais_caro=vi[0].preco;
+  int indice_mais_caro=0;
+  for (k=1; k<tamanho_vetor; k++) {
+    if (//TODO
+    }
+  }
+  return indice_mais_caro;
+  
+}
+
+```
