@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/local/Cellar/allegro/5.2.6.0/include"
             ],
             "defines": [],
             "macFrameworkPath": [],
